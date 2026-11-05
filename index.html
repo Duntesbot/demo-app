@@ -1,62 +1,133 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Loan Services</title>
+<meta name="theme-color" content="#101d35">
+<title>Duntes Loans</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f6fa;
-  color: #222;
+  background: #f3f5f9;
+  color: #18243a;
 }
+
 header {
-  background: #ffcc00;
-  padding: 25px 15px;
-  text-align: center;
+  background: linear-gradient(135deg,#101d35,#203e65);
+  color: white;
+  padding: 30px 20px;
+  border-radius: 0 0 25px 25px;
 }
-header h1 { margin: 0; font-size: 25px; }
-header p { margin-bottom: 0; }
-main {
-  background: white;
-  margin: 18px;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 2px 10px #ddd;
+
+.brand {
+  color: #f4c542;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
-h2 { color: #333; }
-.card {
-  background: #fff9df;
-  padding: 15px;
-  border-radius: 10px;
+
+header h1 {
+  font-size: 29px;
   margin: 12px 0;
 }
+
+header p {
+  color: #d6deeb;
+  line-height: 1.6;
+}
+
+main {
+  padding: 18px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 17px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 19px;
+  color: #172b49;
+}
+
+.card p, li {
+  color: #647087;
+  line-height: 1.7;
+}
+
+.highlight {
+  background: #fff6d9;
+  border-left: 4px solid #e9b82e;
+}
+
+label {
+  display: block;
+  margin: 14px 0 7px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dce2ec;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
 button {
-  background: #ffcc00;
+  background: #e9b82e;
+  color: #172b49;
   border: 0;
   padding: 15px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
+  margin-top: 16px;
   cursor: pointer;
 }
-.notice {
-  background: #fff4d6;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 1.6;
+
+.result {
+  display: none;
+  background: #eaf4ef;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 15px;
+  line-height: 1.8;
 }
+
+.amount {
+  font-size: 25px;
+  font-weight: bold;
+  color: #16734a;
+}
+
+.notice {
+  background: #fff6e4;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #66532b;
+}
+
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px;
+  color: #7a8496;
   font-size: 12px;
-  color: #666;
 }
 </style>
 </head>
@@ -64,75 +135,163 @@ footer {
 <body>
 
 <header>
-  <h1>Quick Loan Services</h1>
-  <p>Independent Loan Information Service</p>
+  <div class="brand">DUNTES LOANS</div>
+  <h1>Welcome to Duntes Loans</h1>
+  <p>
+    Clear loan information, repayment planning
+    and guidance to help you make informed decisions.
+  </p>
 </header>
 
 <main>
+
+<section class="card">
   <h2>Welcome!</h2>
   <p>
-    Welcome to Quick Loan Services. We provide information
-    to help you understand loan products and make informed
-    financial decisions.
+    Explore loan information and understand the
+    costs of borrowing before making a financial
+    decision.
+  </p>
+</section>
+
+<section class="card">
+  <h2>💰 Loan Information</h2>
+  <p>
+    Learn about loan amounts, interest rates,
+    eligibility requirements, repayment periods
+    and additional charges.
+  </p>
+</section>
+
+<section class="card">
+  <h2>📊 Loan Repayment Calculator</h2>
+  <p>
+    Enter your figures below to estimate your
+    monthly repayment. This is an illustration,
+    not a loan offer.
   </p>
 
-  <div class="card">
-    <h3>💰 Loan Information</h3>
-    <p>Learn about available loan products, eligibility
-    requirements and repayment conditions.</p>
-  </div>
+  <label>Loan amount (KSh)</label>
+  <input type="number" id="amount"
+    placeholder="e.g. 10000" min="1">
 
-  <div class="card">
-    <h3>📋 Eligibility Requirements</h3>
-    <ul>
-      <li>Check the provider's age requirements.</li>
-      <li>Understand the application conditions.</li>
-      <li>Review the repayment period.</li>
-    </ul>
-  </div>
+  <label>Monthly interest rate (%)</label>
+  <input type="number" id="rate"
+    placeholder="e.g. 5" min="0" step="0.01">
 
-  <div class="card">
-    <h3>📅 Repayment Information</h3>
-    <p>Always understand the repayment dates, interest
-    rates and any additional charges before borrowing.</p>
-  </div>
+  <label>Repayment period (months)</label>
+  <input type="number" id="months"
+    placeholder="e.g. 6" min="1" step="1">
 
-  <h2>Before Applying</h2>
+  <button onclick="calculateLoan()">
+    Calculate Repayment
+  </button>
+
+  <div class="result" id="result" aria-live="polite">
+    <strong>Estimated monthly repayment</strong>
+    <div class="amount" id="monthly"></div>
+    <div id="details"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>📋 Eligibility Checklist</h2>
   <ul>
-    <li>Read all loan terms carefully.</li>
-    <li>Check interest rates and fees.</li>
-    <li>Borrow only what you can repay.</li>
-    <li>Use official provider channels.</li>
+    <li>Check the provider's minimum age requirements.</li>
+    <li>Understand the application conditions.</li>
+    <li>Confirm the required documents.</li>
+    <li>Check the provider's official website.</li>
+    <li>Understand all fees before applying.</li>
   </ul>
+</section>
 
-  <div class="notice">
-    <strong>Important Notice:</strong><br>
-    This is an independent information service and is
-    not affiliated with MTN or any financial institution.
-    Loan approval is not guaranteed. Never share your
-    PIN, password, OTP or card details.
-  </div>
+<section class="card">
+  <h2>📅 Repayment Guidance</h2>
+  <p>
+    Always check your repayment dates, interest
+    rates, late payment penalties and other charges.
+    Borrow only what you can comfortably repay.
+  </p>
+</section>
 
-  <br>
+<section class="card highlight">
+  <h2>🔒 Your Financial Safety</h2>
+  <p>
+    Never share your banking PIN, password,
+    one-time password (OTP) or card details.
+    Only use verified financial service providers.
+  </p>
+</section>
 
-  <button onclick="learnMore()">Learn More</button>
+<div class="notice">
+  <strong>Important Disclaimer</strong><br>
+  Duntes Loans is an independent loan information
+  service. It is not a bank or licensed lender and
+  does not guarantee loan approval. Calculator
+  results are estimates and exclude additional fees.
+  Verify all loan terms directly with the provider.
+  No personal information is submitted by this page.
+</div>
+
 </main>
 
 <footer>
-  Quick Loan Services<br>
-  Independent Information Service
+  © 2026 Duntes Loans<br>
+  Independent Loan Information Service
 </footer>
 
 <script>
-const tg = window.Telegram && window.Telegram.WebApp;
+const tg = window.Telegram?.WebApp;
 
 if (tg) {
   tg.ready();
   tg.expand();
 }
 
-function learnMore() {
-  alert("More loan information will be available soon.");
+function calculateLoan() {
+  const amount = Number(document.getElementById("amount").value);
+  const rate = Number(document.getElementById("rate").value);
+  const months = Number(document.getElementById("months").value);
+
+  const result = document.getElementById("result");
+
+  if (
+    !Number.isFinite(amount) || amount <= 0 ||
+    !Number.isFinite(rate) || rate < 0 ||
+    !Number.isInteger(months) || months <= 0
+  ) {
+    alert("Please enter a valid loan amount, interest rate and repayment period.");
+    result.style.display = "none";
+    return;
+  }
+
+  const r = rate / 100;
+  let monthly;
+
+  if (r === 0) {
+    monthly = amount / months;
+  } else {
+    monthly = amount * r / (1 - Math.pow(1 + r, -months));
+  }
+
+  const total = monthly * months;
+  const interest = total - amount;
+
+  document.getElementById("monthly").textContent =
+    "KSh " + monthly.toLocaleString("en-KE", {
+      maximumFractionDigits: 2
+    });
+
+  document.getElementById("details").innerHTML =
+    "Total repayment: KSh " + total.toLocaleString("en-KE", {
+      maximumFractionDigits: 2
+    }) +
+    "<br>Estimated interest: KSh " + interest.toLocaleString("en-KE", {
+      maximumFractionDigits: 2
+    }) +
+    "<br><small>Assumes fixed monthly interest and equal monthly payments.</small>";
+
+  result.style.display = "block";
 }
 </script>
 
