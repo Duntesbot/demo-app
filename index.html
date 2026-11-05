@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quick Loan Services</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -16,31 +19,50 @@ header {
   padding: 25px 15px;
   text-align: center;
 }
-header h1 { margin: 0; }
+header h1 { margin: 0; font-size: 25px; }
+header p { margin-bottom: 0; }
 main {
   background: white;
-  margin: 20px;
-  padding: 22px;
-  border-radius: 12px;
+  margin: 18px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px #ddd;
+}
+h2 { color: #333; }
+.card {
+  background: #fff9df;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 12px 0;
 }
 button {
   background: #ffcc00;
   border: 0;
-  padding: 14px;
+  padding: 15px;
   width: 100%;
   border-radius: 8px;
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 .notice {
-  background: #fff7d6;
+  background: #fff4d6;
   padding: 12px;
   border-radius: 8px;
   font-size: 13px;
+  line-height: 1.6;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: #666;
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <h1>Quick Loan Services</h1>
   <p>Independent Loan Information Service</p>
@@ -48,28 +70,71 @@ button {
 
 <main>
   <h2>Welcome!</h2>
-  <p>Welcome to Quick Loan Services.</p>
-  <p>Learn about our loan products, eligibility,
-  repayment terms and application requirements.</p>
+  <p>
+    Welcome to Quick Loan Services. We provide information
+    to help you understand loan products and make informed
+    financial decisions.
+  </p>
 
-  <h3>Before applying</h3>
+  <div class="card">
+    <h3>💰 Loan Information</h3>
+    <p>Learn about available loan products, eligibility
+    requirements and repayment conditions.</p>
+  </div>
+
+  <div class="card">
+    <h3>📋 Eligibility Requirements</h3>
+    <ul>
+      <li>Check the provider's age requirements.</li>
+      <li>Understand the application conditions.</li>
+      <li>Review the repayment period.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📅 Repayment Information</h3>
+    <p>Always understand the repayment dates, interest
+    rates and any additional charges before borrowing.</p>
+  </div>
+
+  <h2>Before Applying</h2>
   <ul>
-    <li>Review the loan terms.</li>
-    <li>Check the interest rate and all fees.</li>
-    <li>Read the privacy policy.</li>
+    <li>Read all loan terms carefully.</li>
+    <li>Check interest rates and fees.</li>
+    <li>Borrow only what you can repay.</li>
+    <li>Use official provider channels.</li>
   </ul>
 
   <div class="notice">
-    This is an independent service and is not
-    affiliated with MTN. No loan approval or
-    eligibility is guaranteed.
+    <strong>Important Notice:</strong><br>
+    This is an independent information service and is
+    not affiliated with MTN or any financial institution.
+    Loan approval is not guaranteed. Never share your
+    PIN, password, OTP or card details.
   </div>
 
-  <p>Contact our business for verified
-  application information.</p>
-  <button onclick="alert('Application information coming soon.')">
-    Learn More
-  </button>
+  <br>
+
+  <button onclick="learnMore()">Learn More</button>
 </main>
+
+<footer>
+  Quick Loan Services<br>
+  Independent Information Service
+</footer>
+
+<script>
+const tg = window.Telegram && window.Telegram.WebApp;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
+function learnMore() {
+  alert("More loan information will be available soon.");
+}
+</script>
+
 </body>
 </html>
